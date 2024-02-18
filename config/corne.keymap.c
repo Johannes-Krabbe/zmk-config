@@ -19,7 +19,7 @@
 //    ├─────────┼─────────────┼─────────────┼────────────┼───────────┼─────────┤   ├───────────┼──────────┼────────────────┼───────────────┼────────────────┼──────────┤
 //    │ &kp ESC │    &kp A    │    &kp S    │   &kp D    │   &kp F   │  &kp G  │   │   &kp H   │  &kp J   │     &kp K      │     &kp L     │    &kp SEMI    │ &kp SQT  │
 //    ├─────────┼─────────────┼─────────────┼────────────┼───────────┼─────────┤   ├───────────┼──────────┼────────────────┼───────────────┼────────────────┼──────────┤
-//    │  &mo 1  │ &mt LCTRL Z │ &mt RMETA X │ &mt LALT C │  &lt 2 V  │  &kp B  │   │   &kp N   │ &lt 2 M  │ &mt RALT COMMA │ &mt LMETA DOT │ &mt RCTRL FSLH │  &mo 1   │
+//    │  &mo 2  │ &mt LCTRL Z │ &mt RMETA X │ &mt LALT C │  &lt 1 V  │  &kp B  │   │   &kp N   │ &lt 1 M  │ &mt RALT COMMA │ &mt LMETA DOT │ &mt RCTRL FSLH │  &mo 2   │
 //    └─────────┴─────────────┴─────────────┼────────────┼───────────┼─────────┤   ├───────────┼──────────┼────────────────┼───────────────┴────────────────┴──────────┘
 //                                          │ &kp LSHFT  │ &kp SPACE │ &kp RET │   │ &kp LMETA │ &kp BSPC │   &kp RSHIFT   │                                            
 //                                          └────────────┴───────────┴─────────┘   └───────────┴──────────┴────────────────┘                                            
@@ -49,21 +49,39 @@ raise_layer {
 
                 lower_layer {
                        bindings = <
-//    ┌───────┬───────┬───────┬────────┬────────┬────────┐   ┌──────────┬──────────┬────────┬───────────┬───────┬───────┐
-//    │ &none │ &none │ &none │ &none  │ &none  │ &none  │   │  &none   │  &none   │ &none  │   &none   │ &none │ &none │
-//    ├───────┼───────┼───────┼────────┼────────┼────────┤   ├──────────┼──────────┼────────┼───────────┼───────┼───────┤
-//    │ &none │ &none │ &none │ &none  │ &none  │ &none  │   │ &kp LEFT │ &kp DOWN │ &kp UP │ &kp RIGHT │ &none │ &none │
-//    ├───────┼───────┼───────┼────────┼────────┼────────┤   ├──────────┼──────────┼────────┼───────────┼───────┼───────┤
-//    │ &none │ &none │ &none │ &none  │ &none  │ &none  │   │  &none   │  &none   │ &none  │   &none   │ &none │ &none │
-//    └───────┴───────┴───────┼────────┼────────┼────────┤   ├──────────┼──────────┼────────┼───────────┴───────┴───────┘
-//                            │ &trans │ &trans │ &trans │   │  &trans  │  &trans  │ &trans │                            
-//                            └────────┴────────┴────────┘   └──────────┴──────────┴────────┘                            
-  &none   &none   &none   &none    &none    &none        &none      &none      &none    &none       &none   &none
-  &none   &none   &none   &none    &none    &none        &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &none   &none
-  &none   &none   &none   &none    &none    &none        &none      &none      &none    &none       &none   &none
-                          &trans   &trans   &trans       &trans     &trans     &trans                            
+//    ┌───────┬───────┬───────┬────────┬────────┬────────┐   ┌──────────┬──────────┬────────┬───────────┬───────┬────────┐
+//    │ &none │ &none │ &none │ &none  │ &none  │ &none  │   │  &none   │  &none   │ &none  │   &none   │ &none │ &tog 3 │
+//    ├───────┼───────┼───────┼────────┼────────┼────────┤   ├──────────┼──────────┼────────┼───────────┼───────┼────────┤
+//    │ &none │ &none │ &none │ &none  │ &none  │ &none  │   │ &kp LEFT │ &kp DOWN │ &kp UP │ &kp RIGHT │ &none │ &none  │
+//    ├───────┼───────┼───────┼────────┼────────┼────────┤   ├──────────┼──────────┼────────┼───────────┼───────┼────────┤
+//    │ &none │ &none │ &none │ &none  │ &none  │ &none  │   │  &none   │  &none   │ &none  │   &none   │ &none │ &none  │
+//    └───────┴───────┴───────┼────────┼────────┼────────┤   ├──────────┼──────────┼────────┼───────────┴───────┴────────┘
+//                            │ &trans │ &trans │ &trans │   │  &trans  │  &trans  │ &trans │                             
+//                            └────────┴────────┴────────┘   └──────────┴──────────┴────────┘                             
+  &none   &none   &none   &none    &none    &none        &none      &none      &none    &none       &none   &tog 3
+  &none   &none   &none   &none    &none    &none        &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &none   &none 
+  &none   &none   &none   &none    &none    &none        &none      &none      &none    &none       &none   &none 
+                          &trans   &trans   &trans       &trans     &trans     &trans                             
                         >;
                 };
+
+                bt_layer {
+                          bindings = <
+//    ┌────────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐   ┌────────┬────────┬────────┬───────┬───────┬────────┐
+//    │ &bt BT_CLR_ALL │  &bt BT_CLR  │  &bt BT_PRV  │  &bt BT_NXT  │ &bt BT_DISC  │    &none     │   │ &none  │ &none  │ &none  │ &none │ &none │ &tog 3 │
+//    ├────────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼────────┼────────┼───────┼───────┼────────┤
+//    │     &none      │ &bt BT_SEL 0 │ &bt BT_SEL 1 │ &bt BT_SEL 2 │ &bt BT_SEL 3 │ &bt BT_SEL 4 │   │ &none  │ &none  │ &none  │ &none │ &none │ &none  │
+//    ├────────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼────────┼────────┼───────┼───────┼────────┤
+//    │     &none      │    &none     │    &none     │    &none     │    &none     │    &none     │   │ &none  │ &none  │ &none  │ &none │ &none │ &none  │
+//    └────────────────┴──────────────┴──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼────────┼────────┼───────┴───────┴────────┘
+//                                                   │    &trans    │    &trans    │    &trans    │   │ &trans │ &trans │ &trans │                         
+//                                                   └──────────────┴──────────────┴──────────────┘   └────────┴────────┴────────┘                         
+  &bt BT_CLR_ALL   &bt BT_CLR     &bt BT_PRV     &bt BT_NXT     &bt BT_DISC    &none              &none    &none    &none    &none   &none   &tog 3
+  &none            &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &none    &none    &none    &none   &none   &none 
+  &none            &none          &none          &none          &none          &none              &none    &none    &none    &none   &none   &none 
+                                                 &trans         &trans         &trans             &trans   &trans   &trans                         
+                          >;
+                          };
 
         };
 };
